@@ -3,36 +3,36 @@ blocks:
   color: null
   configuration: {}
   downstream_blocks:
-  - transform_greentaxi2022
+  - transform_fhv_2019
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: Load_greentaxi_2022
-  retry_config: null
-  status: updated
-  timeout: null
-  type: data_loader
-  upstream_blocks: []
-  uuid: load_greentaxi_2022
-- all_upstream_blocks_executed: true
-  color: null
-  configuration: {}
-  downstream_blocks:
-  - greentaxi_2022_to_gcs
-  executor_config: null
-  executor_type: local_python
-  has_callback: false
-  language: python
-  name: transform_greentaxi2022
+  name: load_fhv_2019
   retry_config: null
   status: executed
   timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_fhv_2019
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - fhv_to_gcs_parquet
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transform_fhv_2019
+  retry_config: null
+  status: updated
+  timeout: null
   type: transformer
   upstream_blocks:
-  - load_greentaxi_2022
-  uuid: transform_greentaxi2022
-- all_upstream_blocks_executed: true
+  - load_fhv_2019
+  uuid: transform_fhv_2019
+- all_upstream_blocks_executed: false
   color: null
   configuration: {}
   downstream_blocks: []
@@ -40,14 +40,14 @@ blocks:
   executor_type: local_python
   has_callback: false
   language: python
-  name: greentaxi_2022_to_gcs
+  name: fhv_to_gcs_parquet
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
-  - transform_greentaxi2022
-  uuid: greentaxi_2022_to_gcs
+  - transform_fhv_2019
+  uuid: fhv_to_gcs_parquet
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}
@@ -59,7 +59,7 @@ executor_config: {}
 executor_count: 1
 executor_type: null
 extensions: {}
-name: Week3_Greentaxitrip_2022
+name: week4_fhv_2019
 notification_config: {}
 remote_variables_dir: null
 retry_config: {}
@@ -69,6 +69,6 @@ settings:
 spark_config: {}
 tags: []
 type: python
-uuid: week3_greentaxitrip_2022
+uuid: week4_fhv_2019
 variables_dir: /home/src/mage_data/magic-zoomcamp
 widgets: []

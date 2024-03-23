@@ -13,7 +13,6 @@ def load_data_from_api(*args, **kwargs):
     Template for loading data from API
     """
     base_url = 'https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2022-{:02d}.parquet'
-    
     taxi_dtypes = {
                 'VendorID': pd.Int64Dtype(),
                 'passenger_count': pd.Int64Dtype(),
